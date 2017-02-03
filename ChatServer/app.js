@@ -14,6 +14,14 @@ socket.on('request', function (request) {
         if (data.type == "CON") {
             connection.id = data.id;
             connections[data.id] = connection;
+
+            if (messages[data.id] != undefined) {
+                for (var i = 0; i < messages[data.id].length; i++) {
+                    sendToConnectionId(data.id, messages[data.id][i]);
+                }
+                delete messages[data.id];
+            }
+
         }
         else if (data.type == undefined) {
             sendToConnectionId(data.id, JSON.stringify({ senderId: connection.id, data: data.data }));
@@ -46,6 +54,15 @@ socket.on('request', function (request) {
         var connection = connections[connectionID];
         if (connection && connection.connected) {
             connection.send(data);
+        }
+        else {
+            if (messages[connectionID] == undefined) {
+                messages[connectionID] = [];
+                messages[connectionID].push(data);
+            }
+            else {
+                messages[connectionID].push(data);
+            }
         }
     }
 }); 
