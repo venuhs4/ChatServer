@@ -19,6 +19,7 @@ socket.on('request', function (request) {
             sendToConnectionId(data.id, JSON.stringify({ senderId: connection.id, data: data.data }));
         }
         else if (data.type == "BRD") {
+
             broadcast(JSON.stringify({ senderId: connection.id, data: data.data }));
         }
     });
