@@ -1,0 +1,9 @@
+{
+  "name": "chat-server",
+  "version": "0.0.0",
+  "description": "ChatServer",
+  "main": "app.js",
+  "author": {
+    "name": "Venuprasad"
+  }
+}
