@@ -3,7 +3,7 @@ var connections = {};
 var messages = {};
 
 var socket = new server({
-    httpServer: http.createServer().listen(4444)
+    httpServer: http.createServer().listen(3002)
 });
 
 socket.on('request', function (request) {
