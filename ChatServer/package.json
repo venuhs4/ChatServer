@@ -2,7 +2,7 @@
   "name": "chat-server",
   "version": "0.0.0",
   "description": "ChatServer",
-  "main": "app.js",
+  "main": "server.js",
   "author": {
     "name": "Venuprasad"
   }
